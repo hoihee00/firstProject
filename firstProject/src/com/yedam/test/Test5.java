@@ -11,7 +11,7 @@ public class Test5 {
 
 		int intValue2 = charValue;
 		System.out.println(intValue2);
-		
+
 //		short shortValue = charValue;
 //		System.out.println(shortValue);
 

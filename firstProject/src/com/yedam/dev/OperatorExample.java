@@ -21,10 +21,10 @@ public class OperatorExample {
 
 		// 짝수와 홀수 구분해서 출력
 		for (int i = 1; i <= 10; i++) {
-			if(i % 2 == 1) {
-				System.out.println(i +"홀수입니다."); // 조건을 만족하면 출력
+			if (i % 2 == 1) {
+				System.out.println(i + "홀수입니다."); // 조건을 만족하면 출력
 			} else {
-				System.out.println(i +"짝수입니다.");	// 조건을 만족하지 않으면 출력
+				System.out.println(i + "짝수입니다."); // 조건을 만족하지 않으면 출력
 			}
 		}
 	}

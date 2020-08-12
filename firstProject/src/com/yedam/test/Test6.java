@@ -7,7 +7,7 @@ public class Test6 {
 		char charValue = 'A';
 		double doubleValue = 5.7;
 		String strValue = "A";
-		
+
 		double var1 = (double) intValue;
 		System.out.println(var1);
 		byte var2 = (byte) intValue;
