@@ -1,4 +1,4 @@
-package com.yedam.ref;
+package com.yedam.classes;
 
 import java.util.Scanner;
 
