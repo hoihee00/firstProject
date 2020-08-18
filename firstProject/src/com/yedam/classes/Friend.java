@@ -1,19 +1,19 @@
 package com.yedam.classes;
 
 public class Friend {
-
-	String name;
-	int age;
-	String tel;
-	
-	public Friend() {
-
+	//필드
+	private String name;
+	private int age;
+	private String phone;
+	//생성자
+	//생성자 오버로딩(매개값이 다른 경우)
+	public Friend(String name,int age, String phone) {
+	this.name = name;
+	this.age = age;
+	this.phone = phone;
 	}
 	
-	public Friend(String name, int age, String tel) {
-		this.name = name;
-		this.age = age;
-		this.tel = tel;
+	public Friend() {
 	}
 
 	public String getName() {
@@ -32,20 +32,21 @@ public class Friend {
 		this.age = age;
 	}
 
-	public String getTel() {
-		return tel;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-
+	//메소드
+	
 	@Override
 	public String toString() {
-		return "이름 : " + name + " / 나이: " + age + " / 전화번호: " + tel;
+		return "친구 이름: " + this.getName()
+		+ ", 연락처: " + this.getPhone();
 	}
-
-		
+	
 	
 
-}
+	}

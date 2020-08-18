@@ -11,7 +11,7 @@ public class MainEx {
 		//(3). 이름조회
 		//(4). 이름조회 후 수정
 		//9.종료
-		FriendEx[] friends = new FriendEx[100]; //Friend 배열의 크기: 100
+		Friend[] friends = new Friend[100]; //Friend 배열의 크기: 100
 		Scanner scn = new Scanner(System.in);
 		boolean run = true;
 		//메뉴출력
@@ -29,7 +29,7 @@ public class MainEx {
 				int age = scn.nextInt(); scn.nextLine();
 				System.out.println("전화번호입력> ");
 				String phone = scn.nextLine();
-				FriendEx f = new FriendEx(name, age, phone);
+				Friend f = new Friend(name, age, phone);
 				//한 건만 입력해야함
 				for(int i=0; i<friends.length; i++) {
 					if(friends[i] == null) {
@@ -39,7 +39,7 @@ public class MainEx {
 				}
 			}
 			else if(selectNo==2) {
-				for(FriendEx frnd : friends) {
+				for(Friend frnd : friends) {
 					if(frnd != null) {
 						System.out.println("이름: " + frnd.getName()
 						+ ", 나이: " + frnd.getAge()
