@@ -1,20 +1,33 @@
 package com.yedam.database;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EmpMain {
 	public static void main(String[] args) {
 		boolean run = true;
 		Scanner scn = new Scanner(System.in);
+		EmpService service = new EmpServiceImpl();
 		while(run) {
 			System.out.println("-----------------------------");
 			System.out.println("1.리스트 2.입력 3.수정 4.삭제 9.종료");
 			System.out.println("-----------------------------");
 			System.out.print("선택> ");
-			int selectNo = scn.nextInt(); 
+			int selectNo = 0;
+			
+			try {
+				selectNo = scn.nextInt();
+				
+			} catch(InputMismatchException e){
+				System.out.println("숫자만 입력하시오 제발");
+				scn.nextLine(); 
+				continue;
+			}
+			
+			
 			if(selectNo == 1) {
-				EmpDAO dao = new EmpDAO();
-				Employee[] emps = dao.getEmpList();
+//				EmpDAO dao = new EmpDAO();
+				Employee[] emps = service.showList();
 				for (Employee emp : emps) {
 					if(emp != null)
 						System.out.println(emp.toString());
@@ -22,7 +35,7 @@ public class EmpMain {
 			}
 			
 			else if(selectNo == 2) {
-				EmpDAO dao = new EmpDAO();
+//				EmpDAO dao = new EmpDAO();
 				
 				System.out.println("사번 입력> ");
 				int ei = scn.nextInt(); scn.nextLine();
@@ -43,7 +56,7 @@ public class EmpMain {
 				emp.setJobId(ji);
 				
 //				Employee emp = new Employee(333,"test","test","2020-05-05","IT_PROG");
-				dao.addEmployee(emp);
+				service.addEmp(emp);
 			}
 			
 			else if(selectNo == 3) {
@@ -51,16 +64,19 @@ public class EmpMain {
 				int eId = scn.nextInt(); scn.nextLine();
 				System.out.println("수정할 급여 입력> ");
 				int newsal = scn.nextInt();
-				EmpDAO dao = new EmpDAO();
-				dao.updateEmp(eId, newsal);
+				Employee emp = new Employee();
+				emp.setSalary(newsal);
+				emp.setEmployeeId(eId);
+//				EmpDAO dao = new EmpDAO();
+				service.modEmp(emp);
 				
 			}
 			
 			else if(selectNo == 4) {
 				System.out.println("삭제할 사번 입력> ");
 				int eId = scn.nextInt(); scn.nextLine();
-				EmpDAO dao = new EmpDAO();
-				dao.removeEmp(eId);
+//				EmpDAO dao = new EmpDAO();
+				service.delEmp(eId);
 			}
 			
 			else if(selectNo == 9) {

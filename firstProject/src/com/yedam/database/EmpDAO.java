@@ -58,13 +58,13 @@ public class EmpDAO {
 	
 	
 	//수정
-	public void updateEmp(int eId, int newsal) {
+	public void updateEmp(Employee emp) {
 		Connection conn = DBConnection.getConnection();
 // update employees
 // SET salary = salary * 1.2
 // where employee_id = 100;
 		
-		String sql = "update emp_temp set salary = " + newsal + "where employee_id = " + eId;
+		String sql = "update emp_temp set salary = " + emp.getSalary() + "where employee_id = " + emp.getEmployeeId();
 		System.out.println(sql);
 		try {
 			PreparedStatement psmt = conn.prepareStatement(sql);
