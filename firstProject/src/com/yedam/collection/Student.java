@@ -1,6 +1,6 @@
 package com.yedam.collection;
 
-public class Student {
+public class Student implements Comparable<Student> {
 	private String name;
 	private int mathScore;
 	private int engScore;
@@ -34,6 +34,11 @@ public class Student {
 
 	public void setEngScore(int engScore) {
 		this.engScore = engScore;
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		return this.mathScore - o.mathScore;
 	}
 	
 
